@@ -647,3 +647,36 @@ body{
 body.loaded{
   opacity:1;
 }
+
+
+
+
+
+.section-subtitle{
+  max-width:750px;
+  margin:0 auto 50px;
+  text-align:center;
+  line-height:1.8;
+  opacity:.8;
+}
+
+.emoji{
+  font-size:2.5rem;
+  margin-bottom:15px;
+}
+
+.product-grid p{
+  line-height:1.8;
+}
+
+.featured-card{
+  grid-column:span 2;
+}
+
+@media(max-width:900px){
+
+  .featured-card{
+    grid-column:span 1;
+  }
+
+}
