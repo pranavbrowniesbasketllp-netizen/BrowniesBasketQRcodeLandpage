@@ -680,3 +680,37 @@ body.loaded{
   }
 
 }
+
+
+.businessbutton{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+
+  background:#8B5E3C;
+  color:white;
+
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.95rem;
+
+  border-radius:999px;
+
+  transition:all 0.3s ease;
+
+  box-shadow:
+  0 8px 20px rgba(139,94,60,0.18);
+}
+
+.businessbutton:hover{
+  transform:translateY(-3px);
+
+  background:#a06f47;
+
+  box-shadow:
+  0 12px 30px rgba(139,94,60,0.28);
+}
+
+.businessbutton:active{
+  transform:translateY(0);
+}
