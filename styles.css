@@ -714,3 +714,34 @@ body.loaded{
 .businessbutton:active{
   transform:translateY(0);
 }
+
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.nav-actions a{
+  text-decoration:none;
+  color:#5c4634;
+  font-weight:500;
+  transition:0.3s ease;
+}
+
+.nav-actions a:hover{
+  color:#8b5e3c;
+}
+
+.nav-contact-btn{
+  padding:12px 24px;
+  background:#8b5e3c;
+  color:white !important;
+  border-radius:999px;
+  font-weight:600;
+}
+
+.nav-contact-btn:hover{
+  background:#a46f46;
+  transform:translateY(-2px);
+}
