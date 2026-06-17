@@ -716,41 +716,19 @@ body.loaded{
 }
 
 
-.nav-actions{
+.navbar{
   display:flex;
   align-items:center;
-  gap:20px;
+  justify-content:space-between;
 }
 
-.nav-actions a{
-  text-decoration:none;
-  color:#5c4634;
-  font-weight:500;
-  transition:0.3s ease;
+.nav-links{
+  display:flex;
+  gap:30px;
 }
 
-.nav-actions a:hover{
-  color:#8b5e3c;
-}
-
-.nav-contact-btn{
-  padding:12px 24px;
-  background:#8b5e3c;
-  color:white !important;
-  border-radius:999px;
-  font-weight:600;
-}
-
-.nav-contact-btn:hover{
-  background:#a46f46;
-  transform:translateY(-2px);
-}
-
-
-@media (max-width: 900px){
-
-  .nav-actions{
-    display:none;
-  }
-
+.nav-actions{
+  display:flex;
+  gap:15px;
+  align-items:center;
 }
