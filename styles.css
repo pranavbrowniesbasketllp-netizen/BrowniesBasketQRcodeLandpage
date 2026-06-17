@@ -745,3 +745,12 @@ body.loaded{
   background:#a46f46;
   transform:translateY(-2px);
 }
+
+
+@media (max-width: 900px){
+
+  .nav-actions{
+    display:none;
+  }
+
+}
