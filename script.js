@@ -1,14 +1,14 @@
-// =========================
-// PAGE LOAD
-// =========================
+// ===================================
+// PAGE LOAD ANIMATION
+// ===================================
 
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
-// =========================
+// ===================================
 // MOBILE MENU
-// =========================
+// ===================================
 
 const menuToggle =
   document.querySelector(".menu-toggle");
@@ -17,55 +17,74 @@ const navLinks =
   document.querySelector(".nav-links");
 
 if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+
+  menuToggle.addEventListener(
+    "click",
+    () => {
+
+      navLinks.classList.toggle("active");
+
+    }
+  );
+
 }
 
-// =========================
+// ===================================
 // SMOOTH SCROLL
-// =========================
+// ===================================
 
 document
   .querySelectorAll('a[href^="#"]')
   .forEach(anchor => {
 
-    anchor.addEventListener("click", function (e) {
+    anchor.addEventListener(
+      "click",
+      function (e) {
 
-      e.preventDefault();
+        e.preventDefault();
 
-      const target =
-        document.querySelector(
-          this.getAttribute("href")
-        );
+        const target =
+          document.querySelector(
+            this.getAttribute("href")
+          );
 
-      if (target) {
+        if (target) {
 
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
 
-        if (navLinks) {
-          navLinks.classList.remove("active");
+          if (navLinks) {
+            navLinks.classList.remove(
+              "active"
+            );
+          }
+
         }
+
       }
-    });
+    );
+
   });
 
-// =========================
+// ===================================
 // SCROLL REVEAL
-// =========================
+// ===================================
 
 const observer =
   new IntersectionObserver(
 
-    (entries) => {
+    entries => {
 
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+
+          entry.target.classList.add(
+            "show"
+          );
+
         }
 
       });
@@ -80,7 +99,7 @@ const observer =
 
 document
   .querySelectorAll(
-    ".feature-card, .glass-card, .social-card, .gallery-grid img"
+    ".product-card, .feature-card, .stat-card, .showcase-item, .gallery-grid img, .cta-card"
   )
   .forEach(el => {
 
@@ -90,171 +109,107 @@ document
 
   });
 
-// =========================
+// ===================================
 // ACTIVE NAVIGATION
-// =========================
+// ===================================
 
 const sections =
-  document.querySelectorAll("section");
+  document.querySelectorAll(
+    "section[id]"
+  );
 
 const navItems =
-  document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-  let current = "";
-
-  sections.forEach(section => {
-
-    const sectionTop =
-      section.offsetTop - 150;
-
-    if (window.scrollY >= sectionTop) {
-      current =
-        section.getAttribute("id");
-    }
-
-  });
-
-  navItems.forEach(link => {
-
-    link.classList.remove("active");
-
-    if (
-      link.getAttribute("href") ===
-      `#${current}`
-    ) {
-      link.classList.add("active");
-    }
-
-  });
-
-});
-
-// =========================
-// GALLERY LIGHTBOX
-// =========================
-
-const images =
   document.querySelectorAll(
-    ".gallery-grid img"
+    ".nav-links a"
   );
 
-const lightbox =
-  document.createElement("div");
+window.addEventListener(
+  "scroll",
+  () => {
 
-lightbox.className = "lightbox";
+    let current = "";
 
-lightbox.innerHTML = `
-  <span class="close-lightbox">&times;</span>
-  <img class="lightbox-image" src="" alt="">
-`;
+    sections.forEach(section => {
 
-document.body.appendChild(lightbox);
+      const sectionTop =
+        section.offsetTop - 180;
 
-const lightboxImage =
-  lightbox.querySelector(
-    ".lightbox-image"
-  );
+      if (
+        window.scrollY >= sectionTop
+      ) {
 
-const closeBtn =
-  lightbox.querySelector(
-    ".close-lightbox"
-  );
+        current =
+          section.getAttribute("id");
 
-images.forEach(img => {
+      }
 
-  img.addEventListener("click", () => {
+    });
 
-    lightboxImage.src = img.src;
+    navItems.forEach(link => {
 
-    lightbox.classList.add("active");
+      link.classList.remove(
+        "active"
+      );
 
-    document.body.style.overflow =
-      "hidden";
+      if (
+        link.getAttribute("href") ===
+        `#${current}`
+      ) {
 
-  });
+        link.classList.add(
+          "active"
+        );
 
-});
+      }
 
-closeBtn.addEventListener("click", () => {
-
-  lightbox.classList.remove("active");
-
-  document.body.style.overflow = "";
-
-});
-
-lightbox.addEventListener("click", e => {
-
-  if (e.target === lightbox) {
-
-    lightbox.classList.remove("active");
-
-    document.body.style.overflow = "";
+    });
 
   }
+);
 
-});
+// ===================================
+// NAVBAR SCROLL EFFECT
+// ===================================
 
-// =========================
-// ESC KEY CLOSE LIGHTBOX
-// =========================
+window.addEventListener(
+  "scroll",
+  () => {
 
-document.addEventListener(
-  "keydown",
-  e => {
+    const navbar =
+      document.querySelector(
+        ".nav-container"
+      );
 
-    if (
-      e.key === "Escape" &&
-      lightbox.classList.contains("active")
-    ) {
+    if (!navbar) return;
 
-      lightbox.classList.remove("active");
+    if (window.scrollY > 50) {
 
-      document.body.style.overflow = "";
+      navbar.style.backdropFilter =
+        "blur(25px)";
+
+      navbar.style.boxShadow =
+        "0 15px 40px rgba(0,0,0,.10)";
+
+    } else {
+
+      navbar.style.boxShadow =
+        "0 10px 40px rgba(0,0,0,.08)";
 
     }
 
   }
 );
 
-// =========================
-// NAVBAR EFFECT
-// =========================
+// ===================================
+// HERO PARALLAX VIDEO
+// ===================================
 
-window.addEventListener("scroll", () => {
-
-  const navbar =
-    document.querySelector(".navbar");
-
-  if (window.scrollY > 50) {
-
-    navbar.style.backdropFilter =
-      "blur(25px)";
-
-    navbar.style.boxShadow =
-      "0 10px 30px rgba(0,0,0,.08)";
-
-  } else {
-
-    navbar.style.boxShadow =
-      "0 10px 30px rgba(0,0,0,.06)";
-
-  }
-
-});
-
-// =========================
-// HERO PARALLAX
-// =========================
-
-const heroVideo =
+const heroMedia =
   document.querySelector(
-    ".hero-video"
+    ".hero-media"
   );
 
-if (heroVideo) {
+if (heroMedia) {
 
   window.addEventListener(
     "mousemove",
@@ -268,7 +223,7 @@ if (heroVideo) {
         (window.innerHeight / 2 -
           e.clientY) / 120;
 
-      heroVideo.style.transform =
+      heroMedia.style.transform =
         `rotateY(${x}deg) rotateX(${-y}deg)`;
 
     }
@@ -276,13 +231,13 @@ if (heroVideo) {
 
 }
 
-// =========================
-// CARD GLOW EFFECT
-// =========================
+// ===================================
+// PRODUCT CARD GLOW
+// ===================================
 
 document
   .querySelectorAll(
-    ".feature-card, .social-card, .glass-card"
+    ".product-card, .feature-card, .stat-card"
   )
   .forEach(card => {
 
@@ -299,13 +254,12 @@ document
         const y =
           e.clientY - rect.top;
 
-        card.style.background = `
-          radial-gradient(
+        card.style.background =
+          `radial-gradient(
             circle at ${x}px ${y}px,
-            rgba(244,194,107,.35),
-            rgba(255,255,255,.90) 35%
-          )
-        `;
+            rgba(244,194,107,.25),
+            rgba(255,255,255,1) 45%
+          )`;
 
       }
     );
@@ -314,30 +268,266 @@ document
       "mouseleave",
       () => {
 
-        if (
-          card.classList.contains(
-            "glass-card"
-          )
-        ) {
-
-          card.style.background =
-            "rgba(255,255,255,.75)";
-
-        } else {
-
-          card.style.background =
-            "#ffffff";
-
-        }
+        card.style.background =
+          "#ffffff";
 
       }
     );
 
   });
 
-// =========================
-// FLOATING WHATSAPP PULSE
-// =========================
+// ===================================
+// GALLERY LIGHTBOX
+// ===================================
+
+const galleryImages =
+  document.querySelectorAll(
+    ".gallery-grid img"
+  );
+
+if (galleryImages.length > 0) {
+
+  const lightbox =
+    document.createElement("div");
+
+  lightbox.className =
+    "lightbox";
+
+  lightbox.innerHTML = `
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-image" src="" alt="">
+  `;
+
+  document.body.appendChild(
+    lightbox
+  );
+
+  const lightboxImage =
+    lightbox.querySelector(
+      ".lightbox-image"
+    );
+
+  const closeBtn =
+    lightbox.querySelector(
+      ".close-lightbox"
+    );
+
+  galleryImages.forEach(img => {
+
+    img.addEventListener(
+      "click",
+      () => {
+
+        lightboxImage.src =
+          img.src;
+
+        lightbox.classList.add(
+          "active"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+    );
+
+  });
+
+  closeBtn.addEventListener(
+    "click",
+    () => {
+
+      lightbox.classList.remove(
+        "active"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
+  );
+
+  lightbox.addEventListener(
+    "click",
+    e => {
+
+      if (
+        e.target === lightbox
+      ) {
+
+        lightbox.classList.remove(
+          "active"
+        );
+
+        document.body.style.overflow =
+          "";
+
+      }
+
+    }
+  );
+
+  document.addEventListener(
+    "keydown",
+    e => {
+
+      if (
+        e.key === "Escape"
+      ) {
+
+        lightbox.classList.remove(
+          "active"
+        );
+
+        document.body.style.overflow =
+          "";
+
+      }
+
+    }
+  );
+
+}
+
+// ===================================
+// COUNTER ANIMATION
+// ===================================
+
+const counters =
+  document.querySelectorAll(
+    ".counter"
+  );
+
+const counterObserver =
+  new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (
+          entry.isIntersecting
+        ) {
+
+          const counter =
+            entry.target;
+
+          const target =
+            parseInt(
+              counter.dataset.target
+            );
+
+          let count = 0;
+
+          const speed =
+            target / 80;
+
+          const update = () => {
+
+            count += speed;
+
+            if (
+              count < target
+            ) {
+
+              counter.innerText =
+                Math.floor(count);
+
+              requestAnimationFrame(
+                update
+              );
+
+            } else {
+
+              if (
+                target === 5000
+              ) {
+
+                counter.innerText =
+                  "5000+";
+
+              } else if (
+                target === 100
+              ) {
+
+                counter.innerText =
+                  "100+";
+
+              } else {
+
+                counter.innerText =
+                  target;
+
+              }
+
+            }
+
+          };
+
+          update();
+
+          counterObserver.unobserve(
+            counter
+          );
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold: 0.5
+    }
+
+  );
+
+counters.forEach(counter => {
+
+  counterObserver.observe(
+    counter
+  );
+
+});
+
+// ===================================
+// AUTO HIDE MOBILE MENU
+// ===================================
+
+document.addEventListener(
+  "click",
+  e => {
+
+    if (
+      navLinks &&
+      navLinks.classList.contains(
+        "active"
+      )
+    ) {
+
+      if (
+        !navLinks.contains(
+          e.target
+        ) &&
+        !menuToggle.contains(
+          e.target
+        )
+      ) {
+
+        navLinks.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+
+  }
+);
+
+// ===================================
+// WHATSAPP FLOATING BUTTON
+// ===================================
 
 const whatsapp =
   document.querySelector(
@@ -354,7 +544,7 @@ if (whatsapp) {
           transform: "scale(1)"
         },
         {
-          transform: "scale(1.08)"
+          transform: "scale(1.12)"
         },
         {
           transform: "scale(1)"
