@@ -216,19 +216,6 @@ a{
 
 }
 
-.menu-toggle{
-
-  display:none;
-
-  border:none;
-
-  background:none;
-
-  font-size:1.3rem;
-
-  cursor:pointer;
-
-}
 
 /* ===================================
    HERO
@@ -978,9 +965,6 @@ footer{
   display:none;
 }
 
-.menu-toggle{
-  display:block;
-}
 
 .footer-grid{
   grid-template-columns:1fr;
@@ -999,4 +983,34 @@ footer{
 
 }
 
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 280px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  z-index: 9999;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  text-decoration: none;
+  color: #2B1D17;
 }
