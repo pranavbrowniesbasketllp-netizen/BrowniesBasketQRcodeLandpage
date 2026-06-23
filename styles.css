@@ -1000,11 +1000,3 @@ footer{
 }
 
 }
-
-.mobile-menu {
-  display: none;
-}
-
-.mobile-menu.active {
-  display: block;
-}
