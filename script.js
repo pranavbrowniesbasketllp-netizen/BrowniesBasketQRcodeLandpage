@@ -558,3 +558,10 @@ if (whatsapp) {
   }, 5000);
 
 }
+
+const menuButton = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuButton.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
