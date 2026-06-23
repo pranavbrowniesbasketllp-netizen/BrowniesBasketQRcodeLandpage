@@ -8,6 +8,11 @@
   }
 }
 
+.menu-toggle {
+  position: relative;
+  z-index: 9999;
+}
+
 :root{
 
   --primary:#8B5E3C;
