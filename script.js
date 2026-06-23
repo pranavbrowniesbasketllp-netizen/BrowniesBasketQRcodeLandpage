@@ -558,10 +558,9 @@ if (whatsapp) {
   }, 5000);
 
 }
-
-const menuButton = document.querySelector('.hamburger');
+const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 
-menuButton.addEventListener('click', () => {
+menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
 });
