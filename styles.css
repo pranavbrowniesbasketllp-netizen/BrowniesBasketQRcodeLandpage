@@ -2,6 +2,12 @@
    ROOT VARIABLES
 =================================== */
 
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+
 :root{
 
   --primary:#8B5E3C;
