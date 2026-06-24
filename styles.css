@@ -1046,3 +1046,14 @@ footer{
   text-decoration: none;
   color: #2B1D17;
 }
+
+
+
+.gallery-section,
+.gallery-wrapper,
+.container,
+.page-width,
+main{
+    width:100% !important;
+    max-width:100% !important;
+}
