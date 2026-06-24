@@ -710,55 +710,6 @@ a{
    GALLERY
 =================================== */
 
-/* Gallery Section */
-.gallery-section{
-    width:100%;
-    max-width:100%;
-    padding:20px 30px;
-    box-sizing:border-box;
-}
-
-/* Masonry Grid */
-.gallery-grid{
-    width:100%;
-    max-width:100%;
-    columns:4 250px;
-    column-gap:20px;
-}
-
-/* Images */
-.gallery-grid img{
-    display:block;
-    width:100%;
-    margin-bottom:20px;
-    border-radius:25px;
-    cursor:pointer;
-    transition:transform .35s ease;
-    break-inside:avoid;
-}
-
-.gallery-grid img:hover{
-    transform:scale(1.03);
-}
-
-/* Responsive */
-@media (max-width:1200px){
-    .gallery-grid{
-        columns:3 250px;
-    }
-}
-
-@media (max-width:768px){
-    .gallery-grid{
-        columns:2 200px;
-    }
-}
-
-@media (max-width:480px){
-    .gallery-grid{
-        columns:1;
-    }
-}
 /* ===================================
    INSTAGRAM
 =================================== */
